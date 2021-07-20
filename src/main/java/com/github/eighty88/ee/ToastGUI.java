@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagString;
 
 public class ToastGUI implements IToast {
-    private static final long VISIBLE_TIME = 4000;
+    private static final long VISIBLE_TIME = 3000;
     private String USERID;
     private String Message;
 
