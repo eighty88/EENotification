@@ -11,8 +11,8 @@ import org.apache.logging.log4j.Level;
 public class EventHandler {
     @SubscribeEvent(priority = EventPriority.NORMAL, receiveCanceled = true)
     public static void onEvent(ClientChatReceivedEvent event) {
-        String Message = event.getMessage().getFormattedText();
-        if(!Message.matches("\\[.*].*")) {
+        String Message = event.getMessage().getUnformattedText();
+        if(!Message.matches(".*\\[.*].*")) {
             if (Message.contains("joined") || Message.contains("left")) {
                 String[] str = Utils.stripColor(Message).split(" ", 2);
                 if (!str[0].contains(Minecraft.getMinecraft().player.getName())) {
