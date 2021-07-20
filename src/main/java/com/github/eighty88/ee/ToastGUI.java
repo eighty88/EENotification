@@ -14,10 +14,12 @@ public class ToastGUI implements IToast {
     private static final long VISIBLE_TIME = 3000;
     private String USERID;
     private String Message;
+    private ItemStack head;
 
     public ToastGUI(String USERID, String Message) {
         this.USERID = USERID;
         this.Message = Message;
+        this.head = GetCustomHead(USERID);
     }
 
     @Override
@@ -35,7 +37,7 @@ public class ToastGUI implements IToast {
         mc.fontRenderer.drawString(Message, 30, 18, 0xFFFFFFFF);
 
         RenderHelper.enableGUIStandardItemLighting();
-        toastGui.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(null, GetCustomHead(USERID), 8, 8);
+        toastGui.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(null, head, 8, 8);
 
         return delta >= VISIBLE_TIME ? IToast.Visibility.HIDE : IToast.Visibility.SHOW;
     }
