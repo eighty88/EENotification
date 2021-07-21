@@ -18,7 +18,7 @@ public class EventHandler {
                 if (!str[0].contains(Minecraft.getMinecraft().player.getName())) {
                     Minecraft.getMinecraft().getToastGui().add(new ToastGUI(str[0], str[1]));
                 }
-                EENotification.logger.log(Level.INFO, Message);
+                EENotification.logger.log(Level.INFO, Utils.stripColor(Message));
                 event.setCanceled(true);
             }
         }

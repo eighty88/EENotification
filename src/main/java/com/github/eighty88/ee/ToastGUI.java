@@ -12,9 +12,9 @@ import net.minecraft.nbt.NBTTagString;
 
 public class ToastGUI implements IToast {
     private static final long VISIBLE_TIME = 3000;
-    private String USERID;
-    private String Message;
-    private ItemStack head;
+    private final String USERID;
+    private final String Message;
+    private final ItemStack head;
 
     public ToastGUI(String USERID, String Message) {
         this.USERID = USERID;
@@ -33,11 +33,16 @@ public class ToastGUI implements IToast {
         mc.getTextureManager().bindTexture(TEXTURE_TOASTS);
         toastGui.drawTexturedModalRect(0, 0, 0, 0, 160, 32);
 
-        mc.fontRenderer.drawString(USERID, 30, 7, 0xFFFFFF00);
-        mc.fontRenderer.drawString(Message, 30, 18, 0xFFFFFFFF);
+        mc.fontRenderer.drawString(USERID, 8, 7, 0xFFFFFF00);
+        mc.fontRenderer.drawString(Message, 8, 18, 0xFFFFFFFF);
 
-        RenderHelper.enableGUIStandardItemLighting();
-        toastGui.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(null, head, 8, 8);
+        /*
+         mc.fontRenderer.drawString(USERID, 30, 7, 0xFFFFFF00);
+         mc.fontRenderer.drawString(Message, 30, 18, 0xFFFFFFFF);
+
+         RenderHelper.enableGUIStandardItemLighting();
+         toastGui.getMinecraft().getRenderItem().renderItemAndEffectIntoGUI(null, head, 8, 8);
+        */
 
         return delta >= VISIBLE_TIME ? IToast.Visibility.HIDE : IToast.Visibility.SHOW;
     }
